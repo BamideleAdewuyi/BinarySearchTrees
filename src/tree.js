@@ -2,13 +2,12 @@ import Node from "./Node.js";
 
 class Tree {
     constructor(array) {
-        this.array = array;
+        this.array = this.sortArr(this.removeDup(array));
         this.root = this.buildTree(this.array);
     };
 
     buildTree(array) {
-        let sortedUniq = this.sortArr(this.removeDup(array))
-        console.log(sortedUniq)
+        console.log(array)
     };
 
     removeDup(array) {
