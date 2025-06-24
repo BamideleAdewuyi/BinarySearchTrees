@@ -7,7 +7,12 @@ class Tree {
     };
 
     buildTree(array) {
-        console.log(array)
+        let start = 0;
+        let end = array.length - 1;
+        if (start > end) return null;
+        let mid = start + Math.floor((end - start) / 2);
+        let root = new Node(array[mid], this.buildTree(array.slice(start, mid)), this.buildTree(array.slice(mid+1, end+1)))
+        return root
     };
 
     removeDup(array) {
