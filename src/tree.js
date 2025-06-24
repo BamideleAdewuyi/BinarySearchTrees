@@ -4,19 +4,24 @@ class Tree {
     constructor(array) {
         this.array = array;
         this.root = this.buildTree(this.array);
-    }
+    };
 
     buildTree(array) {
-        let uniq = this.removeDup(array)
-        console.log(uniq)
-    }
+        let sortedUniq = this.sortArr(this.removeDup(array))
+        console.log(sortedUniq)
+    };
 
     removeDup(array) {
-        const uniq = array.filter(function(elem, ind) {
+        return array.filter(function(elem, ind) {
             return array.indexOf(elem) == ind;
         })
-        return uniq;
-    }
+    };
+
+    sortArr(array) {
+        return array.sort(function(a, b) {
+            return a - b;
+        })
+    };
 }
 
 export default Tree;
