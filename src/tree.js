@@ -1,8 +1,12 @@
 import Node from "./Node.js";
 
 class Tree {
-    constructor(arr) {
-        this.arr = arr;
+    constructor(array) {
+        this.array = array;
+    }
+
+    buildTree(array) {
+        
     }
 }
 
