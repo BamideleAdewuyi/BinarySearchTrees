@@ -24,6 +24,14 @@ class Tree {
             return a - b;
         })
     };
+
+    insertValue(value) {
+
+    };
+
+    deleteItem(value) {
+
+    };
 }
 
 export default Tree;
