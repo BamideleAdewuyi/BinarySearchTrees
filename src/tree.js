@@ -43,8 +43,34 @@ class Tree {
         return root;
     };
 
-    deleteItem(value) {
+    deleteItem(root, value) {
+        if (root === null) {
+            return root;
+        }
 
+        if (root.data > value) {
+            root.left = this.deleteItem(root.left, value);
+        } else if (root.data < value) {
+            root.right = this.deleteItem(root.right, value);
+        } else {
+            if (root.left === null) {
+                return root.right;
+            }
+
+            if (root.right === null) {
+                return root.left;
+            }
+
+            let succ = root.right;
+            while (succ!== null && succ.left !== null) {
+                succ = succ.left
+            };
+
+            root.data = succ.data;
+            root.right = this.deleteItem(root.right, succ.data);
+
+        }
+        return root;
     };
 }
 
