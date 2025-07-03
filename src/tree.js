@@ -72,6 +72,10 @@ class Tree {
         }
         return root;
     };
+
+    find(value) {
+
+    };
 }
 
 export default Tree;
