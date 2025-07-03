@@ -73,8 +73,12 @@ class Tree {
         return root;
     };
 
-    find(value) {
+    find(value, root) {
+        if (root === null || root.data === value) return root;
 
+        if (root.data < value) return this.find(value, root.right);
+
+        return this.find(value, root.left);
     };
 }
 
