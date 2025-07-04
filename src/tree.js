@@ -80,6 +80,10 @@ class Tree {
 
         return this.find(value, root.left);
     };
+
+    levelOrder(callback) {
+
+    };
 }
 
 export default Tree;
