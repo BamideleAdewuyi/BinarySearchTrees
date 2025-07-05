@@ -102,7 +102,12 @@ class Tree {
     inOrder(callback, root) {
         if (typeof(callback) != "function") {
             throw new Error("You must pass a callback function.");
-        };
+        }
+
+        if (root === null) return;
+        this.inOrder(callback, root.left);
+        callback(root.data);
+        this.inOrder(callback, root.right);
     };
 
     preOrder(callback, root) {
