@@ -81,8 +81,22 @@ class Tree {
         return this.find(value, root.left);
     };
 
-    levelOrder(callback) {
+    levelOrder(callback, root) {
+        if (typeof(callback) != "function") {
+            throw new Error("You must pass a callback function.");
+        }
 
+        if (root === null) return;
+
+        let q = [root];
+
+        while (q.length > 0) {
+            let current = q[0];
+            callback(current.data);
+            if (current.left != null) q.push(current.left);
+            if (current.right != null) q.push(current.right);
+            q.shift(); 
+        }
     };
 }
 
