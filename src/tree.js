@@ -124,7 +124,13 @@ class Tree {
     postOrder(callback, root) {
         if (typeof(callback) != "function") {
             throw new Error("You must pass a callback function.");
-        };
+        }
+
+        if (root === null) return;
+
+        this.postOrder(callback, root.left);
+        this.postOrder(callback, root.right);
+        callback(root.data);
     };
 }
 
