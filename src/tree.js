@@ -100,15 +100,26 @@ class Tree {
     };
 
     inOrder(callback, root) {
-
+        if (typeof(callback) != "function") {
+            throw new Error("You must pass a callback function.");
+        };
     };
 
     preOrder(callback, root) {
+        if (typeof(callback) != "function") {
+            throw new Error("You must pass a callback function.");
+        }
 
+        if (root === null) return;
+        callback(root.data);
+        this.preOrder(callback, root.left);
+        this.preOrder(callback, root.right);
     };
 
     postOrder(callback, root) {
-
+        if (typeof(callback) != "function") {
+            throw new Error("You must pass a callback function.");
+        };
     };
 }
 
