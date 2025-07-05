@@ -132,6 +132,14 @@ class Tree {
         this.postOrder(callback, root.right);
         callback(root.data);
     };
+
+    height(value) {
+
+    };
+
+    depth(value) {
+
+    };
 }
 
 export default Tree;
