@@ -98,6 +98,18 @@ class Tree {
             q.shift(); 
         }
     };
+
+    inOrder(callback, root) {
+
+    };
+
+    preOrder(callback, root) {
+
+    };
+
+    postOrder(callback, root) {
+
+    };
 }
 
 export default Tree;
