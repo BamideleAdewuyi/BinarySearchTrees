@@ -133,9 +133,24 @@ class Tree {
         callback(root.data);
     };
 
-    height(value) {
+    heightUtil(root, value, height) {
+        if (!root) return -1;
+        let left = this.heightUtil(root.left, value, height);
+        let right = this.heightUtil(root.right, value, height);
 
+        let res = Math.max(left, right) + 1;
+
+        if (root.data === value) height.value = res;
+
+        return res;
     };
+
+    height(root, value) {
+        if (!this.find(value, root)) return null;
+        let height = {value: -1};
+        this.heightUtil(root, value, height);
+        return height.value;
+    }
 
     depth(value) {
 
