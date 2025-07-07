@@ -152,8 +152,19 @@ class Tree {
         return height.value;
     }
 
-    depth(value) {
+    depth(value, root) {
+        if (!this.find(value, root)) return null;
+        if (!root) return -1;
 
+        let depth = -1;
+
+        if (root.data === value ||
+        (depth = this.depth(value, root.left)) >= 0 ||
+        (depth = this.depth(value, root.right)) >= 0) {
+        return depth + 1;
+        }
+    
+        return depth;
     };
 }
 
