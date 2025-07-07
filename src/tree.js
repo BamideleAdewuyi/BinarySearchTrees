@@ -166,6 +166,14 @@ class Tree {
     
         return depth;
     };
+
+    isBalanced() {
+
+    };
+
+    rebalance() {
+
+    };
 }
 
 export default Tree;
