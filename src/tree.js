@@ -182,10 +182,18 @@ class Tree {
 
     isBalanced() {
         return this.isBalancedRec(this.root) !== -1;
-    }
+    };
 
     rebalance() {
+        if (this.isBalanced()) return;
+        let arr = [];
+        const pushToArray = (value) => {
+            arr.push(value)
+        }
 
+        this.inOrder(pushToArray, this.root)
+        this.array = arr
+        this.root = this.buildTree(this.array, 0, this.array.length - 1);
     };
 }
 
