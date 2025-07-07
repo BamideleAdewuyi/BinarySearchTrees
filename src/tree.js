@@ -167,9 +167,22 @@ class Tree {
         return depth;
     };
 
-    isBalanced() {
+    isBalancedRec(root) {
+        if (root === null) return 0;
 
+        let leftHeight = this.isBalancedRec(root.left);
+        let rightHeight = this.isBalancedRec(root.right);
+
+        if (leftHeight === -1 || rightHeight === -1 || Math.abs(leftHeight - rightHeight) > 1) {
+            return -1;
+        }
+
+        return Math.max(leftHeight, rightHeight) + 1
     };
+
+    isBalanced() {
+        return this.isBalancedRec(this.root) !== -1;
+    }
 
     rebalance() {
 
